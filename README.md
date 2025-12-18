@@ -1,16 +1,46 @@
-# React + Vite
+# Online Ticket Booking Platform Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the client-side application for the Online Ticket Booking Platform.
 
-Currently, two official plugins are available:
+## Purpose
+The purpose of this client is to provide a user-friendly interface for users to discover and book travel tickets, for vendors to manage their tickets, and for admins to oversee the platform.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
+- **User Interface**: Responsive and intuitive design using React and Tailwind CSS.
+- **Authentication**: Secure login and registration using Firebase.
+- **Ticket Discovery**: Search, filter, and sort tickets.
+- **Booking System**: Easy booking process with Stripe payment integration.
+- **Dashboards**: Dedicated dashboards for Users, Vendors, and Admins.
 
-## React Compiler
+## NPM Packages Used
+- **react**: JavaScript library for building user interfaces.
+- **react-router-dom**: Declarative routing for React.
+- **firebase**: Platform for building web and mobile applications.
+- **react-hook-form**: Performant, flexible and extensible forms with easy-to-use validation.
+- **axios**: Promise based HTTP client for the browser and node.js.
+- **@tanstack/react-query**: Powerful asynchronous state management.
+- **sweetalert2**: A beautiful, responsive, customizable, accessible (WAI-ARIA) replacement for JavaScript's popup boxes.
+- **react-icons**: Include popular icons in your React projects easily.
+- **swiper**: Modern mobile touch slider.
+- **@stripe/stripe-js**: Stripe.js wrapper.
+- **@stripe/react-stripe-js**: React components for Stripe.js.
+- **daisyui**: Tailwind CSS component library.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Setup
+1. Clone the repository.
+2. Install dependencies: 
+pm install`r
+3. Create a .env.local file with your Firebase configuration keys:
+    ` 
+    VITE_apiKey=your_api_key
+    VITE_authDomain=your_auth_domain
+    VITE_projectId=your_project_id
+    VITE_storageBucket=your_storage_bucket
+    VITE_messagingSenderId=your_messaging_sender_id
+    VITE_appId=your_app_id
+    ` 
+4. Run the development server: 
+pm run dev`r
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Live URL
+(Add your live client URL here)
