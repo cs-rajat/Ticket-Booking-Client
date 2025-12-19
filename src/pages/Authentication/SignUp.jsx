@@ -1,9 +1,17 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
-import { FaGoogle, FaUser, FaEnvelope, FaLock, FaImage } from "react-icons/fa";
+import {
+  FaGoogle,
+  FaUser,
+  FaEnvelope,
+  FaLock,
+  FaImage,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa";
 import axios from "axios";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
@@ -12,6 +20,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const SignUp = () => {
   const axiosPublic = useAxiosPublic();
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
@@ -132,7 +141,7 @@ const SignUp = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaUser className="text-gray-400" />
+                  <FaUser className="text-base-content/50" />
                 </div>
                 <input
                   type="text"
@@ -142,7 +151,7 @@ const SignUp = () => {
                 />
               </div>
               {errors.name && (
-                <span className="text-red-500 text-xs mt-1">
+                <span className="text-error text-xs mt-1">
                   Name is required
                 </span>
               )}
@@ -160,7 +169,7 @@ const SignUp = () => {
                 />
               </div>
               {errors.image && (
-                <span className="text-red-500 text-xs mt-1">
+                <span className="text-error text-xs mt-1">
                   Photo is required
                 </span>
               )}
@@ -172,7 +181,7 @@ const SignUp = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaEnvelope className="text-gray-400" />
+                  <FaEnvelope className="text-base-content/50" />
                 </div>
                 <input
                   type="email"
@@ -182,7 +191,7 @@ const SignUp = () => {
                 />
               </div>
               {errors.email && (
-                <span className="text-red-500 text-xs mt-1">
+                <span className="text-error text-xs mt-1">
                   Email is required
                 </span>
               )}
@@ -194,10 +203,10 @@ const SignUp = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaLock className="text-gray-400" />
+                  <FaLock className="text-base-content/50" />
                 </div>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   {...register("password", {
                     required: true,
                     minLength: 6,
@@ -205,26 +214,31 @@ const SignUp = () => {
                     pattern: /(?=.*[A-Z])(?=.*[a-z])/,
                   })}
                   placeholder="********"
-                  className="input input-bordered w-full pl-10 focus:input-primary"
+                  className="input input-bordered w-full pl-10 pr-10 focus:input-primary"
                 />
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-base-content/50 hover:text-primary cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
               </div>
               {errors.password?.type === "required" && (
-                <p className="text-red-500 text-xs mt-1">
-                  Password is required
-                </p>
+                <p className="text-error text-xs mt-1">Password is required</p>
               )}
               {errors.password?.type === "minLength" && (
-                <p className="text-red-500 text-xs mt-1">
+                <p className="text-error text-xs mt-1">
                   Password must be 6 characters
                 </p>
               )}
               {errors.password?.type === "maxLength" && (
-                <p className="text-red-500 text-xs mt-1">
+                <p className="text-error text-xs mt-1">
                   Password must be less than 20 characters
                 </p>
               )}
               {errors.password?.type === "pattern" && (
-                <p className="text-red-500 text-xs mt-1">
+                <p className="text-error text-xs mt-1">
                   Password must have one Uppercase and one lower case letter.
                 </p>
               )}

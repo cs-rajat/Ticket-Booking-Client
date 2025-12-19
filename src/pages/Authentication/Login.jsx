@@ -1,13 +1,20 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import { FaGoogle, FaEnvelope, FaLock } from "react-icons/fa";
+import {
+  FaGoogle,
+  FaEnvelope,
+  FaLock,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   const location = useLocation();
@@ -68,7 +75,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-base-200 py-12 px-4 sm:px-6 lg:px-8">
       <div className="card lg:card-side bg-base-100 shadow-2xl max-w-4xl w-full overflow-hidden rounded-2xl">
         {/* Left Side - Image/Gradient */}
-        <div className="lg:w-1/2 bg-primary relative flex flex-col justify-center items-center text-white p-10">
+        <div className="lg:w-1/2 bg-primary relative flex flex-col justify-center items-center text-primary-content p-10">
           <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary opacity-90"></div>
           <div className="relative z-10 text-center">
             <h1 className="text-5xl font-bold mb-4">Welcome Back!</h1>
@@ -110,7 +117,7 @@ const Login = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaEnvelope className="text-gray-400" />
+                  <FaEnvelope className="text-base-content/50" />
                 </div>
                 <input
                   type="email"
@@ -132,14 +139,21 @@ const Login = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <FaLock className="text-gray-400" />
+                  <FaLock className="text-base-content/50" />
                 </div>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   {...register("password", { required: true })}
                   placeholder="Enter your password"
-                  className="input input-bordered w-full pl-10 focus:input-primary"
+                  className="input input-bordered w-full pl-10 pr-10 focus:input-primary"
                 />
+                <button
+                  type="button"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-base-content/50 hover:text-primary cursor-pointer"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
               </div>
               {errors.password && (
                 <span className="text-error text-sm mt-1">
@@ -169,7 +183,7 @@ const Login = () => {
             onClick={handleGoogleSignIn}
             className="btn btn-outline w-full flex items-center justify-center gap-2 hover:bg-base-200 transition-colors"
           >
-            <FaGoogle className="text-red-500" />
+            <FaGoogle className="text-error" />
             <span>Login with Google</span>
           </button>
 

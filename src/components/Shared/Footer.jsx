@@ -4,8 +4,8 @@ import { FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
   return (
     <footer className="bg-neutral text-neutral-content">
-      <div className="footer p-10 max-w-screen-xl mx-auto">
-        <aside>
+      <div className="flex flex-col md:flex-row justify-between p-10 max-w-screen-xl mx-auto gap-10">
+        <aside className="max-w-xs">
           <div className="flex items-center gap-2 text-2xl font-bold mb-2">
             <FaBus className="text-primary" />
             <span>
@@ -18,14 +18,14 @@ const Footer = () => {
             Providing reliable tech since 2025
           </p>
         </aside>
-        <nav>
+        <nav className="flex flex-col gap-2">
           <header className="footer-title">Quick Links</header>
           <a className="link link-hover">Home</a>
           <a className="link link-hover">All Tickets</a>
           <a className="link link-hover">Contact Us</a>
           <a className="link link-hover">About</a>
         </nav>
-        <nav>
+        <nav className="flex flex-col gap-2">
           <header className="footer-title">Contact Info</header>
           <a className="link link-hover">Email: support@ticketbari.com</a>
           <a className="link link-hover">Phone: +880 1234 567890</a>
@@ -41,13 +41,13 @@ const Footer = () => {
             </a>
           </div>
         </nav>
-        <nav>
+        <nav className="flex flex-col gap-2">
           <header className="footer-title">Payment Methods</header>
           <p className="text-lg font-semibold">Stripe</p>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg"
             alt="Stripe"
-            className="w-20 bg-white p-1 rounded"
+            className="w-20 bg-base-100 p-1 rounded"
           />
         </nav>
       </div>

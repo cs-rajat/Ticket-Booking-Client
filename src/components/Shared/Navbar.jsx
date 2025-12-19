@@ -34,16 +34,18 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/all-tickets"
-          className={({ isActive }) =>
-            isActive ? "text-primary font-bold" : "font-medium"
-          }
-        >
-          All Tickets
-        </NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink
+            to="/all-tickets"
+            className={({ isActive }) =>
+              isActive ? "text-primary font-bold" : "font-medium"
+            }
+          >
+            All Tickets
+          </NavLink>
+        </li>
+      )}
       {user && (
         <li>
           <NavLink
@@ -104,7 +106,7 @@ const Navbar = () => {
             onChange={toggleTheme}
             checked={theme === "dark"}
           />
-          <FaSun className="swap-on fill-current w-6 h-6 text-yellow-500" />
+          <FaSun className="swap-on fill-current w-6 h-6 text-warning" />
           <FaMoon className="swap-off fill-current w-6 h-6 text-base-content/70" />
         </label>
 

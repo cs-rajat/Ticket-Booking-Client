@@ -55,9 +55,7 @@ const PaymentHistory = () => {
                     {payment.title || payment.busName} ({payment.from} -{" "}
                     {payment.to})
                   </td>
-                  <td className="font-bold text-green-600">
-                    ৳ {payment.price}
-                  </td>
+                  <td className="font-bold text-success">৳ {payment.price}</td>
                   <td>
                     {new Date(payment.date).toLocaleDateString("en-GB")}{" "}
                     {new Date(payment.date).toLocaleTimeString()}

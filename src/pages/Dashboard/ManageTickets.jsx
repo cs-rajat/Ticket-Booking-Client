@@ -153,7 +153,7 @@ const ManageTickets = () => {
                   )}
                   <button
                     onClick={() => handleDeleteTicket(ticket)}
-                    className="btn btn-sm btn-ghost text-red-600"
+                    className="btn btn-sm btn-ghost text-error"
                   >
                     <FaTrashAlt />
                   </button>

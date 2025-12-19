@@ -128,7 +128,7 @@ const BookingCard = ({ booking }) => {
             <p className="text-xs text-base-content/60">Time Remaining</p>
             <p
               className={`font-mono font-bold ${
-                isExpired ? "text-red-500" : "text-green-600"
+                isExpired ? "text-error" : "text-success"
               }`}
             >
               {timeLeft}

@@ -95,7 +95,7 @@ const UpdateTicket = () => {
                 {...register("title", { required: "Title is required" })}
               />
               {errors.title && (
-                <span className="text-red-500 text-sm mt-1">
+                <span className="text-error text-sm mt-1">
                   {errors.title.message}
                 </span>
               )}
@@ -115,7 +115,7 @@ const UpdateTicket = () => {
                 {...register("from", { required: "From location is required" })}
               />
               {errors.from && (
-                <span className="text-red-500 text-sm mt-1">
+                <span className="text-error text-sm mt-1">
                   {errors.from.message}
                 </span>
               )}
@@ -133,7 +133,7 @@ const UpdateTicket = () => {
                 {...register("to", { required: "To location is required" })}
               />
               {errors.to && (
-                <span className="text-red-500 text-sm mt-1">
+                <span className="text-error text-sm mt-1">
                   {errors.to.message}
                 </span>
               )}
@@ -159,7 +159,7 @@ const UpdateTicket = () => {
                 <option value="Ship">Ship</option>
               </select>
               {errors.transportType && (
-                <span className="text-red-500 text-sm mt-1">
+                <span className="text-error text-sm mt-1">
                   {errors.transportType.message}
                 </span>
               )}
@@ -181,7 +181,7 @@ const UpdateTicket = () => {
                 })}
               />
               {errors.price && (
-                <span className="text-red-500 text-sm mt-1">
+                <span className="text-error text-sm mt-1">
                   {errors.price.message}
                 </span>
               )}
@@ -202,7 +202,7 @@ const UpdateTicket = () => {
                 })}
               />
               {errors.quantity && (
-                <span className="text-red-500 text-sm mt-1">
+                <span className="text-error text-sm mt-1">
                   {errors.quantity.message}
                 </span>
               )}
@@ -219,7 +219,7 @@ const UpdateTicket = () => {
                 {...register("date", { required: "Date is required" })}
               />
               {errors.date && (
-                <span className="text-red-500 text-sm mt-1">
+                <span className="text-error text-sm mt-1">
                   {errors.date.message}
                 </span>
               )}
@@ -236,7 +236,7 @@ const UpdateTicket = () => {
                 {...register("time", { required: "Time is required" })}
               />
               {errors.time && (
-                <span className="text-red-500 text-sm mt-1">
+                <span className="text-error text-sm mt-1">
                   {errors.time.message}
                 </span>
               )}

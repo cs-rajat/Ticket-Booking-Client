@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -21,11 +21,13 @@ import {
 } from "react-icons/fa";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import TicketCard from "../../components/TicketCard";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Home = () => {
   const [advertisedTickets, setAdvertisedTickets] = useState([]);
   const [latestTickets, setLatestTickets] = useState([]);
   const axiosPublic = useAxiosPublic();
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     AOS.init({
@@ -89,7 +91,7 @@ const Home = () => {
                   </p>
                   <Link
                     to="/all-tickets"
-                    className="btn btn-primary btn-lg text-white border-none hover:bg-orange-600"
+                    className="btn btn-primary btn-lg border-none"
                   >
                     Book Your Ticket
                   </Link>
@@ -116,7 +118,7 @@ const Home = () => {
                   </p>
                   <Link
                     to="/all-tickets"
-                    className="btn btn-primary btn-lg text-white border-none hover:bg-orange-600"
+                    className="btn btn-primary btn-lg border-none"
                   >
                     Book Flight
                   </Link>
@@ -129,7 +131,7 @@ const Home = () => {
               className="hero h-full"
               style={{
                 backgroundImage:
-                  "url(https://images.unsplash.com/photo-1513035033-61e0098233f7?q=80&w=1470&auto=format&fit=crop)",
+                  "url(https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=1684&auto=format&fit=crop)",
               }}
             >
               <div className="hero-overlay bg-black bg-opacity-50"></div>
@@ -143,7 +145,7 @@ const Home = () => {
                   </p>
                   <Link
                     to="/all-tickets"
-                    className="btn btn-primary btn-lg text-white border-none hover:bg-orange-600"
+                    className="btn btn-primary btn-lg border-none"
                   >
                     Book Train
                   </Link>
@@ -186,7 +188,7 @@ const Home = () => {
               </label>
               <input type="date" className="input input-bordered w-full" />
             </div>
-            <button className="btn btn-primary text-white h-12 mt-auto">
+            <button className="btn btn-primary h-12 mt-auto">
               <FaSearch className="mr-2" /> Search
             </button>
           </div>
@@ -209,17 +211,17 @@ const Home = () => {
               desc: "Affordable & Comfortable",
             },
             {
-              icon: <FaPlane className="text-4xl text-blue-500" />,
+              icon: <FaPlane className="text-4xl text-info" />,
               title: "Air Ticket",
               desc: "Fastest Way to Travel",
             },
             {
-              icon: <FaTrain className="text-4xl text-orange-600" />,
+              icon: <FaTrain className="text-4xl text-warning" />,
               title: "Train Ticket",
               desc: "Scenic & Safe Journey",
             },
             {
-              icon: <FaShip className="text-4xl text-cyan-500" />,
+              icon: <FaShip className="text-4xl text-accent" />,
               title: "Launch Ticket",
               desc: "Relaxing River Cruise",
             },
@@ -243,8 +245,8 @@ const Home = () => {
       </div>
 
       {/* Advertisement Section - Admin Featured Tickets */}
-      {advertisedTickets.length > 0 && (
-        <div className="py-16 bg-gradient-to-br from-orange-50 to-yellow-50 px-4">
+      {user && advertisedTickets.length > 0 && (
+        <div className="py-16 bg-base-200 px-4">
           <div className="max-w-screen-xl mx-auto">
             <div className="text-center mb-12" data-aos="fade-up">
               <div className="badge badge-primary badge-lg mb-2">Featured</div>
@@ -265,33 +267,32 @@ const Home = () => {
       )}
 
       {/* Latest Tickets Section */}
-      <div className="py-16 bg-base-200 px-4">
-        <div className="max-w-screen-xl mx-auto">
-          <div className="text-center mb-12" data-aos="fade-up">
-            <div className="badge badge-secondary badge-lg mb-2">New</div>
-            <h2 className="text-4xl font-bold mb-3">Latest Tickets</h2>
-            <p className="text-base-content/60">
-              Recently added tickets to popular destinations
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {latestTickets.map((ticket) => (
-              <TicketCard key={ticket._id} ticket={ticket} />
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link
-              to="/all-tickets"
-              className="btn btn-primary btn-lg px-10 text-white"
-            >
-              View All Tickets
-            </Link>
+      {user && (
+        <div className="py-16 bg-base-100 px-4">
+          <div className="max-w-screen-xl mx-auto">
+            <div className="text-center mb-12" data-aos="fade-up">
+              <div className="badge badge-secondary badge-lg mb-2">New</div>
+              <h2 className="text-4xl font-bold mb-3">Latest Tickets</h2>
+              <p className="text-base-content/60">
+                Recently added tickets to popular destinations
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {latestTickets.map((ticket) => (
+                <TicketCard key={ticket._id} ticket={ticket} />
+              ))}
+            </div>
+            <div className="text-center mt-10">
+              <Link to="/all-tickets" className="btn btn-primary btn-lg px-10">
+                View All Tickets
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Popular Routes Section */}
-      <div className="py-16 px-4 bg-gradient-to-br from-blue-50 to-cyan-50">
+      <div className="py-16 px-4 bg-base-200">
         <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-4xl font-bold mb-3">Popular Routes</h2>
@@ -332,7 +333,7 @@ const Home = () => {
                   </div>
                   <Link
                     to="/all-tickets"
-                    className="btn btn-primary btn-sm mt-2 text-white"
+                    className="btn btn-primary btn-sm mt-2"
                   >
                     View Tickets
                   </Link>

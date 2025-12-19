@@ -338,7 +338,7 @@ const TicketDetails = () => {
                 </p>
                 <p
                   className={`text-xl font-mono font-bold ${
-                    isExpired ? "text-red-500" : "text-green-600"
+                    isExpired ? "text-error" : "text-success"
                   }`}
                 >
                   {timeLeft}

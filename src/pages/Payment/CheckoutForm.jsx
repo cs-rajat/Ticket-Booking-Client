@@ -125,9 +125,9 @@ const CheckoutForm = ({ ticket, price, bookingId }) => {
       >
         Pay
       </button>
-      <p className="text-red-600 mt-2">{error}</p>
+      <p className="text-error mt-2">{error}</p>
       {transactionId && (
-        <p className="text-green-600"> Your transaction id: {transactionId}</p>
+        <p className="text-success"> Your transaction id: {transactionId}</p>
       )}
     </form>
   );

@@ -158,7 +158,7 @@ const AddTicket = () => {
                   <span className="label-text font-semibold">From</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/50">
                     <FaMapMarkerAlt />
                   </div>
                   <input
@@ -183,7 +183,7 @@ const AddTicket = () => {
                   <span className="label-text font-semibold">To</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/50">
                     <FaMapMarkerAlt />
                   </div>
                   <input
@@ -237,7 +237,7 @@ const AddTicket = () => {
                   </span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/50">
                     <FaDollarSign />
                   </div>
                   <input
@@ -264,7 +264,7 @@ const AddTicket = () => {
                   <span className="label-text font-semibold">Total Seats</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/50">
                     <FaUsers />
                   </div>
                   <input
@@ -292,7 +292,7 @@ const AddTicket = () => {
                   </span>
                 </label>
                 <div className="relative w-full">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500 z-10">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/50 z-10">
                     <FaCalendarAlt />
                   </div>
                   <Controller
@@ -326,7 +326,7 @@ const AddTicket = () => {
                   </span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/50">
                     <FaClock />
                   </div>
                   <input
@@ -348,7 +348,7 @@ const AddTicket = () => {
                   <span className="label-text font-semibold">Ticket Image</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-base-content/50">
                     <FaImage />
                   </div>
                   <input

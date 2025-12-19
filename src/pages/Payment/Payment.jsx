@@ -20,9 +20,8 @@ const Payment = () => {
           Booking for: {ticket?.from} to {ticket?.to}
         </h3>
         <p className="text-lg mb-6">
-          Please pay{" "}
-          <span className="font-bold text-orange-500">৳ {price}</span> to
-          confirm your ticket.
+          Please pay <span className="font-bold text-primary">৳ {price}</span>{" "}
+          to confirm your ticket.
         </p>
 
         <Elements stripe={stripePromise}>
